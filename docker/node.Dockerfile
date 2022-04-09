@@ -1,4 +1,4 @@
-FROM node:14-bullseye-slim
+FROM node:14-alpine
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -12,7 +12,7 @@ RUN userdel -r node && \
     groupadd -g ${HOST_GID} ${CONTAINER_GROUP} && \
     useradd -u ${HOST_UID} -g ${CONTAINER_GROUP} -s /bin/sh -m ${CONTAINER_USER}
 
-RUN apt-get update && apt-get install -y git
+RUN apk update && apk add git
 
 ENV DISABLE_OPENCOLLECTIVE true
 ENV PATH /home/reconmapper/node_modules/.bin:$PATH

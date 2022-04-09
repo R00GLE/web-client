@@ -9,8 +9,8 @@ ARG HOST_UID=1000
 ARG HOST_GID=1000
 
 RUN deluser node && \
-    addgroup -g 1000 reconmapper && \
-    adduser -u 1000 -g reconmapper -s /bin/sh reconmapper
+    addgroup -g 1000 reconmapper
+RUN adduser -u 1000 -g reconmapper -s /bin/sh reconmapper
 
 RUN apk update && apk add git
 

@@ -9,7 +9,7 @@ ARG HOST_UID=1000
 ARG HOST_GID=1000
 
 RUN deluser --remove-home node && \
-adduser -u 1000 -g reconmapper -s /bin/sh reconmapper
+adduser -D -u 1000 -g reconmapper -s /bin/sh reconmapper
 
 RUN apk update && apk add git
 

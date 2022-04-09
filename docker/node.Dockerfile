@@ -8,9 +8,9 @@ ARG CONTAINER_GROUP=reconmapper
 ARG HOST_UID=1000
 ARG HOST_GID=1000
 
-RUN userdel -r node && \
-    groupadd -g ${HOST_GID} ${CONTAINER_GROUP} && \
-    useradd -u ${HOST_UID} -g ${CONTAINER_GROUP} -s /bin/sh -m ${CONTAINER_USER}
+RUN deluser -r node && \
+    addgroup -g ${HOST_GID} ${CONTAINER_GROUP} && \
+    adduser -u ${HOST_UID} -g ${CONTAINER_GROUP} -s /bin/sh -m ${CONTAINER_USER}
 
 RUN apk update && apk add git
 

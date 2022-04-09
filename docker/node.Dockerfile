@@ -8,7 +8,7 @@ ARG CONTAINER_GROUP=reconmapper
 ARG HOST_UID=1000
 ARG HOST_GID=1000
 
-RUN deluser --remove-home node && \
+RUN deluser node && \
     addgroup -g 1000 reconmapper && \
     adduser -u 1000 -g reconmapper -s /bin/sh reconmapper
 

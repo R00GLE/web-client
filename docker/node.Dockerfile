@@ -9,8 +9,8 @@ ARG HOST_UID=1000
 ARG HOST_GID=1000
 
 RUN deluser --remove-home node && \
-    addgroup -g ${HOST_GID} ${CONTAINER_GROUP} && \
-    adduser -u ${HOST_UID} -g ${CONTAINER_GROUP} -s /bin/sh -m ${CONTAINER_USER}
+    addgroup -g 1000 reconmapper && \
+    adduser -u 1000 -g reconmapper -s /bin/sh -m reconmapper
 
 RUN apk update && apk add git
 

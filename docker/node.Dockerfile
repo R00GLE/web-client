@@ -8,9 +8,8 @@ ARG CONTAINER_GROUP=reconmapper
 ARG HOST_UID=1000
 ARG HOST_GID=1000
 
-RUN deluser --remove-home node
-RUN addgroup -g 1001 reconmapper && \
-adduser -u 1001 -g reconmapper -s /bin/sh reconmapper
+RUN deluser --remove-home node && \
+adduser -u 1000 -g reconmapper -s /bin/sh reconmapper
 
 RUN apk update && apk add git
 
